@@ -187,10 +187,15 @@ def main():
     plot_networks(
         ntwks=[dut, cascaded_dut, deembedded_dut, fixture],
         labels=["dut", "cascaded", "deembedded", "fixture"],
-        nb_ports=3,
+        nb_ports=dut.number_of_ports,
     )
     # plot magnitude delta(dut, deembedded dut)
-    plot_networks(ntwks=[dut, deembedded_dut], labels=["delta"], nb_ports=3, delta=True)
+    plot_networks(
+        ntwks=[dut, deembedded_dut],
+        labels=["delta"],
+        nb_ports=dut.number_of_ports,
+        delta=True,
+    )
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     plt.show()
